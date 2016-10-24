@@ -38,7 +38,7 @@
 //    self.srp.imageMapping = @{SRPlayerBackBtnKey:[UIImage imageNamed:@"Player_back_full"],SRPlayerFullScreenKey:[UIImage imageNamed:@"Player_fullscreen"],SRPlayerSmallScreenKey:[UIImage imageNamed:@"Player_shrinkscreen"]};
     // 设置单个视频
     SRPlayerItem *item = [SRPlayerItem SR_playerItemWithVideoURL:self.videoURL videoTitle:@"测试标题"];
-    item.isAutoPlay = NO;
+    item.isAutoPlay = YES;
     self.srp.SR_playerItem = item;
     
     

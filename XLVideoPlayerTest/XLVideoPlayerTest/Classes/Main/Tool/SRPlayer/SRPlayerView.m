@@ -217,14 +217,15 @@ typedef NS_ENUM(NSInteger, PanDirection){
     if (playerItem.videoImage) {
         self.layer.contents = (id) playerItem.videoImage.CGImage;
     } else { //默认显示第一帧图片
-        dispatch_queue_t queue = dispatch_queue_create("com.playerVideoImage.queue", DISPATCH_QUEUE_CONCURRENT);
+        if (!playerItem.isAutoPlay) { //当自动播放时，不获取第一帧图片
+            dispatch_queue_t queue = dispatch_queue_create("com.playerVideoImage.queue", DISPATCH_QUEUE_CONCURRENT);
             dispatch_async(queue, ^{
-                 UIImage *image = [self frameVideoImageAtTime:1];
+                UIImage *image = [self frameVideoImageAtTime:1];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.layer.contents = (id)image.CGImage;
                 });
             });
-        
+        }
     }
     // 显示控制层整体view
     self.SR_controlView.hidden = NO;
