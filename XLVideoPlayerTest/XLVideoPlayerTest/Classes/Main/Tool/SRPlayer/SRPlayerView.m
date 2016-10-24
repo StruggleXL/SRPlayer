@@ -811,11 +811,15 @@ typedef NS_ENUM(NSInteger, PanDirection){
         if (self.videoDidEnd) { // 播放结束
             [self.SR_controlView hiddenAllControl];
         } else {
-            if (self.SR_controlView.isFullScreen) {
+            if (self.showTopControl) { // 外部设置显示顶部控制层
                 [self.SR_controlView showAllControl];
             } else {
-                [self.SR_controlView showBottomControl];
-                [self.SR_controlView hiddenTopControl];
+                if (self.SR_controlView.isFullScreen) {
+                    [self.SR_controlView showAllControl];
+                } else {
+                    [self.SR_controlView showBottomControl];
+                    [self.SR_controlView hiddenTopControl];
+                }
             }
         }
         if ([UIApplication sharedApplication].statusBarHidden) {

@@ -33,7 +33,7 @@
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
     
     self.srp.delegate = self;
-    
+//    self.srp.showTopControl = YES;
     // 设置自定义图片，key可在SRPlayer.h中查看 ，若不设置，会使用默认图片
 //    self.srp.imageMapping = @{SRPlayerBackBtnKey:[UIImage imageNamed:@"Player_back_full"],SRPlayerFullScreenKey:[UIImage imageNamed:@"Player_fullscreen"],SRPlayerSmallScreenKey:[UIImage imageNamed:@"Player_shrinkscreen"]};
     // 设置单个视频

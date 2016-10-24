@@ -27,6 +27,8 @@
 /** 视频相关对象数组*/   // 播放多个视频
 @property (nonatomic,strong) NSArray <SRPlayerItem *>*playerItems;
 
+/** 小屏状态下是否显示顶部控制层*/
+@property (nonatomic,assign) BOOL showTopControl;
 /** 自定义图片映射*/
 @property (nonatomic,strong) NSDictionary *imageMapping;
 /**
